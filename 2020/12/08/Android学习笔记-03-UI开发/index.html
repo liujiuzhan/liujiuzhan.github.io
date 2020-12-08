@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="常用控件 TextView  gravity指定对齐方式，可选值为：top,bottom,left,right,center textSize：24sp textColor：颜色   Button  textAllCaps   EditText  hint maxLines editText.getText().toString();   ImageView  图片放在drawable-xhdpi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2020/12/08/Android%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-03-UI%E5%BC%80%E5%8F%91/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="常用控件 TextView  gravity指定对齐方式，可选值为：top,bottom,left,right,center textSize：24sp textColor：颜色   Button  textAllCaps   EditText  hint maxLines editText.getText().toString();   ImageView  图片放在drawable-xhdpi">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="c:/Users/詹光辉/Documents/自定义控件.png">
+<meta property="article:published_time" content="2020-12-08T12:32:01.897Z">
+<meta property="article:modified_time" content="2020-07-19T07:54:50.437Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:/Users/詹光辉/Documents/自定义控件.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Android学习笔记-03-UI开发" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/12/08/Android%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-03-UI%E5%BC%80%E5%8F%91/" class="article-date">
+  <time datetime="2020-12-08T12:32:01.897Z" itemprop="datePublished">2020-12-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="常用控件"><a href="#常用控件" class="headerlink" title="常用控件"></a>常用控件</h2><ul>
+<li><p>TextView</p>
+<ul>
+<li><code>gravity</code>指定对齐方式，可选值为：<code>top,bottom,left,right,center</code></li>
+<li><code>textSize</code>：24sp</li>
+<li><code>textColor</code>：颜色</li>
+</ul>
+</li>
+<li><p>Button</p>
+<ul>
+<li><code>textAllCaps</code></li>
+</ul>
+</li>
+<li><p>EditText</p>
+<ul>
+<li><code>hint</code></li>
+<li><code>maxLines</code></li>
+<li><code>editText.getText().toString();</code></li>
+</ul>
+</li>
+<li><p>ImageView</p>
+<ul>
+<li>图片放在drawable-xhdpi目录</li>
+<li><code>src=&quot;@drawable/img_1&quot;</code></li>
+<li><code>setImageResource(R.drawable.img_2)</code></li>
+</ul>
+</li>
+<li><p>ProgressBar</p>
+<ul>
+<li><code>visibility</code>:<code>visible/invisible/gone</code></li>
+<li><code>setVisibility(View.VISIBLE)</code></li>
+<li><code>style=&quot;?android:attr/progressBarStyleHorizontal&quot;</code></li>
+<li><code>android:max=100</code></li>
+<li><code>int progress = progressBar.getProgress();</code></li>
+<li><code>progressBar.setProgress();</code></li>
+</ul>
+</li>
+<li><p>AlertDialog</p>
+<ul>
+<li><pre><code class="java">AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
+dialog.setTitle(&quot;&quot;);
+setMessage();
+setCancelable(false)
+setPositiveButton(&quot;OK&quot;,new DialogInterface.OnClickListener()&#123;&#125;)
+setNegativeButton(&quot;Cancel&quot;,new);
+dialog.show();
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* ProgressDialog</span><br><span class="line"></span><br><span class="line">  * &#96;&#96;&#96;java</span><br><span class="line">    ProgressDialog progressDialog &#x3D; new ProgressDialog(MainActivity.this);</span><br><span class="line">    setTitle();</span><br><span class="line">    setMessage();</span><br><span class="line">    setCancelabe();</span><br><span class="line">    progressDialog.show();</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="四种布局"><a href="#四种布局" class="headerlink" title="四种布局"></a>四种布局</h2><ul>
+<li>线性布局<code>LinearLayout</code><ul>
+<li><code>android:orientation=&quot;vertical&quot;</code></li>
+<li><code>layout_gravity</code></li>
+<li><code>layout_weight</code></li>
+<li>常用效果：Edit：<code>layout_weight=1</code>，Button：<code>layout_weight&amp;layout_height=&quot;wrap_content&quot;</code></li>
+</ul>
+</li>
+<li>相对布局<code>RelativeLayout</code><ul>
+<li><code>layout_alignParentLeft=&quot;true&quot;</code></li>
+<li><code>layout_alignParentTop</code></li>
+<li><code>layout_centerInParent</code></li>
+<li>相对于控件</li>
+<li><code>layout_above=&quot;@id/button3&quot;</code></li>
+<li><code>layout_toLeftOf=&quot;@id/button3&quot;</code></li>
+</ul>
+</li>
+<li>帧布局<code>FrameLayout</code><ul>
+<li>所有控件默认摆放在布局左上角</li>
+</ul>
+</li>
+<li>百分比布局<code>android.support.percent.PercentFrameLayout</code><ul>
+<li>继承<code>FrameLayout</code>属性</li>
+<li>打开<code>app/build.gradle</code>，在<code>dependencies</code>加入<code>complier &#39;com.android.support:percent:24.2.1&#39;</code></li>
+<li><code>app:layout_widthPercent=&quot;50%&quot;</code></li>
+<li><code>layout_gravity=&quot;right|top&quot;</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="创建自定义控件"><a href="#创建自定义控件" class="headerlink" title="创建自定义控件"></a>创建自定义控件</h2><h6 id="引入布局"><a href="#引入布局" class="headerlink" title="引入布局"></a>引入布局</h6><ol>
+<li><p>新建布局<code>title.xml</code></p>
+<ul>
+<li><code>background=&quot;@drawable/title&quot;</code>背景图片，可以使用颜色</li>
+<li><code>android:layout_margin</code>指定控件在上下左右方向上的偏移距离</li>
+<li><code>android:layout_marginLeft</code>指定控件在左方向上的偏移距离</li>
+</ul>
+</li>
+<li><p>在<code>activity_main.xml</code>引入布局</p>
+</li>
+</ol>
+<ul>
+<li><code>&lt;include layout=&quot;@layout/title&quot;/&gt;</code></li>
+</ul>
+<ol start="3">
+<li><p>隐藏标题栏</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ActionBar actionBar = getSupportActionbar();</span><br><span class="line"><span class="keyword">if</span>(actionBar != <span class="keyword">null</span>)&#123;</span><br><span class="line">    actionBar.hide();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h6 id="创建自定义控件-1"><a href="#创建自定义控件-1" class="headerlink" title="创建自定义控件"></a>创建自定义控件</h6><ol>
+<li><p>新建<code>Titlelayout</code>继承自<code>LinearLayout</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">TitleLayout</span><span class="params">(Context context,AttributeSet attrs)</span></span>&#123;</span><br><span class="line">    <span class="keyword">super</span>(context,attrs);</span><br><span class="line">    LayoutInflater.from(context).inflate(R.layout.title,<span class="keyword">this</span>)<span class="comment">//动态加载</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//重写LinearLayout构造函数，在布局中引入TitleLayout控件就会调用这个函数，然后对标题栏动态加载，通过LayoutFlater的from()方法构建LayoutInfalter对象，调用infalte()方法动态加载布局文件，infalter()需要两个参数，第一个是布局Id，第二个参数是给加载好的布局添加父布局，这里是TitleLayout</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//添加按钮注册点击事件</span></span><br><span class="line">setOnClickListener</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在<code>activity_main.xml</code>布局文件中添加自定义控件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;com.example.uicustomviews.TitleLayout</span><br><span class="line">     android.layout_width=&quot;match_parent&quot;</span><br><span class="line">     android.layout_height=&quot;wrap_content&quot;/&gt;                                   </span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\詹光辉\Documents\自定义控件.png" alt="自定义控件"></p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/12/08/Android%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-03-UI%E5%BC%80%E5%8F%91/" data-id="ckifyqyy80000qstc4d3deh1a" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/12/08/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/12/08/Android%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-03-UI%E5%BC%80%E5%8F%91/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/08/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
