@@ -2,118 +2,31 @@
 <search>
   <entry>
     <title></title>
-    <url>/2020/12/08/Android%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-03-UI%E5%BC%80%E5%8F%91/</url>
-    <content><![CDATA[<h2 id="常用控件"><a href="#常用控件" class="headerlink" title="常用控件"></a>常用控件</h2><ul>
-<li><p>TextView</p>
-<ul>
-<li><code>gravity</code>指定对齐方式，可选值为：<code>top,bottom,left,right,center</code></li>
-<li><code>textSize</code>：24sp</li>
-<li><code>textColor</code>：颜色</li>
-</ul>
-</li>
-<li><p>Button</p>
-<ul>
-<li><code>textAllCaps</code></li>
-</ul>
-</li>
-<li><p>EditText</p>
-<ul>
-<li><code>hint</code></li>
-<li><code>maxLines</code></li>
-<li><code>editText.getText().toString();</code></li>
-</ul>
-</li>
-<li><p>ImageView</p>
-<ul>
-<li>图片放在drawable-xhdpi目录</li>
-<li><code>src=&quot;@drawable/img_1&quot;</code></li>
-<li><code>setImageResource(R.drawable.img_2)</code></li>
-</ul>
-</li>
-<li><p>ProgressBar</p>
-<ul>
-<li><code>visibility</code>:<code>visible/invisible/gone</code></li>
-<li><code>setVisibility(View.VISIBLE)</code></li>
-<li><code>style=&quot;?android:attr/progressBarStyleHorizontal&quot;</code></li>
-<li><code>android:max=100</code></li>
-<li><code>int progress = progressBar.getProgress();</code></li>
-<li><code>progressBar.setProgress();</code></li>
-</ul>
-</li>
-<li><p>AlertDialog</p>
-<ul>
-<li><pre><code class="java">AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
-dialog.setTitle(&quot;&quot;);
-setMessage();
-setCancelable(false)
-setPositiveButton(&quot;OK&quot;,new DialogInterface.OnClickListener()&#123;&#125;)
-setNegativeButton(&quot;Cancel&quot;,new);
-dialog.show();
-<figure class="highlight reasonml"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">* ProgressDialog</span><br><span class="line"></span><br><span class="line"><span class="operator">  * </span>```java</span><br><span class="line">    ProgressDialog progressDialog = <span class="keyword">new</span> <span class="constructor">ProgressDialog(MainActivity.<span class="params">this</span>)</span>;</span><br><span class="line">    set<span class="constructor">Title()</span>;</span><br><span class="line">    set<span class="constructor">Message()</span>;</span><br><span class="line">    set<span class="constructor">Cancelabe()</span>;</span><br><span class="line">    progressDialog.show<span class="literal">()</span>;</span><br></pre></td></tr></table></figure>
-</code></pre>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="四种布局"><a href="#四种布局" class="headerlink" title="四种布局"></a>四种布局</h2><ul>
-<li>线性布局<code>LinearLayout</code><ul>
-<li><code>android:orientation=&quot;vertical&quot;</code></li>
-<li><code>layout_gravity</code></li>
-<li><code>layout_weight</code></li>
-<li>常用效果：Edit：<code>layout_weight=1</code>，Button：<code>layout_weight&amp;layout_height=&quot;wrap_content&quot;</code></li>
-</ul>
-</li>
-<li>相对布局<code>RelativeLayout</code><ul>
-<li><code>layout_alignParentLeft=&quot;true&quot;</code></li>
-<li><code>layout_alignParentTop</code></li>
-<li><code>layout_centerInParent</code></li>
-<li>相对于控件</li>
-<li><code>layout_above=&quot;@id/button3&quot;</code></li>
-<li><code>layout_toLeftOf=&quot;@id/button3&quot;</code></li>
-</ul>
-</li>
-<li>帧布局<code>FrameLayout</code><ul>
-<li>所有控件默认摆放在布局左上角</li>
-</ul>
-</li>
-<li>百分比布局<code>android.support.percent.PercentFrameLayout</code><ul>
-<li>继承<code>FrameLayout</code>属性</li>
-<li>打开<code>app/build.gradle</code>，在<code>dependencies</code>加入<code>complier &#39;com.android.support:percent:24.2.1&#39;</code></li>
-<li><code>app:layout_widthPercent=&quot;50%&quot;</code></li>
-<li><code>layout_gravity=&quot;right|top&quot;</code></li>
-</ul>
-</li>
-</ul>
-<h2 id="创建自定义控件"><a href="#创建自定义控件" class="headerlink" title="创建自定义控件"></a>创建自定义控件</h2><h6 id="引入布局"><a href="#引入布局" class="headerlink" title="引入布局"></a>引入布局</h6><ol>
-<li><p>新建布局<code>title.xml</code></p>
-<ul>
-<li><code>background=&quot;@drawable/title&quot;</code>背景图片，可以使用颜色</li>
-<li><code>android:layout_margin</code>指定控件在上下左右方向上的偏移距离</li>
-<li><code>android:layout_marginLeft</code>指定控件在左方向上的偏移距离</li>
-</ul>
-</li>
-<li><p>在<code>activity_main.xml</code>引入布局</p>
-</li>
-</ol>
-<ul>
-<li><code>&lt;include layout=&quot;@layout/title&quot;/&gt;</code></li>
-</ul>
-<ol start="3">
-<li><p>隐藏标题栏</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ActionBar actionBar = getSupportActionbar();</span><br><span class="line"><span class="keyword">if</span>(actionBar != <span class="keyword">null</span>)&#123;</span><br><span class="line">    actionBar.hide();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <url>/2020/12/09/Beautiful%E5%85%A5%E9%97%A8/</url>
+    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data = soup.find(<span class="string">&quot;tbody&quot;</span>).children</span><br></pre></td></tr></table></figure>
 
-</li>
-</ol>
-<h6 id="创建自定义控件-1"><a href="#创建自定义控件-1" class="headerlink" title="创建自定义控件"></a>创建自定义控件</h6><ol>
-<li><p>新建<code>Titlelayout</code>继承自<code>LinearLayout</code></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">TitleLayout</span><span class="params">(Context context,AttributeSet attrs)</span></span>&#123;</span><br><span class="line">    <span class="keyword">super</span>(context,attrs);</span><br><span class="line">    LayoutInflater.from(context).inflate(R.layout.title,<span class="keyword">this</span>)<span class="comment">//动态加载</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//重写LinearLayout构造函数，在布局中引入TitleLayout控件就会调用这个函数，然后对标题栏动态加载，通过LayoutFlater的from()方法构建LayoutInfalter对象，调用infalte()方法动态加载布局文件，infalter()需要两个参数，第一个是布局Id，第二个参数是给加载好的布局添加父布局，这里是TitleLayout</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//添加按钮注册点击事件</span></span><br><span class="line">setOnClickListener</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在<code>activity_main.xml</code>布局文件中添加自定义控件</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">&lt;com.example.uicustomviews.TitleLayout</span><br><span class="line">     android.layout_width=&quot;match_parent&quot;</span><br><span class="line">     android.layout_height=&quot;wrap_content&quot;/&gt;                                   </span><br></pre></td></tr></table></figure>
+<p>上面的代码中，<code>find()</code> 是搜索文档树中的一种方法，它能够返回第一个匹配的元素。它的完整参数形式为：<code>find( name , attrs , recursive , string , **kwargs )</code>。参数 <code>name</code> 是用标签名去检索字符串，参数 <code>attrs</code> 是用标签属性值去检索字符串，参数 <code>recursive</code> 是否对子孙全部检索，默认为 <code>True</code>，参数 <code>string</code> 是检索标签中的非属性字符串。</p>
+<p>下行遍历的三种属性：</p>
+<ul>
+<li><code>.children</code>：循环遍历儿子节点</li>
+<li><code>.descendants</code>：循环遍历子孙节点</li>
+<li><code>.contents</code>：将该标签中的儿子节点保存到列表</li>
+</ul>
+<p>上行遍历的三种属性：</p>
+<ul>
+<li><code>.parent</code>：访问父节点标签</li>
+<li><code>parents</code>：循环遍历所有先辈节点</li>
+</ul>
+<p>平行遍历的四个属性</p>
+<ul>
+<li><code>next_sibling</code></li>
+<li><code>previous_sibling</code></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> bs4</span><br><span class="line">info = []  <span class="comment"># 定义一个列表去保存最后需要的数据</span></span><br><span class="line"><span class="keyword">for</span> tr <span class="keyword">in</span> soup.find(<span class="string">&#x27;tbody&#x27;</span>).children:</span><br><span class="line">    <span class="comment"># 用 isinstance() 函数来判断一个对象是否是一个已知的类型</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">isinstance</span>(tr, bs4.element.Tag):  <span class="comment"># 判断 tr 是否是 bs4 标签类型的元素</span></span><br><span class="line">        tds = tr.find_all(<span class="string">&#x27;td&#x27;</span>)  <span class="comment"># 把 tr 标签中的所有 td 标签的内容存储在列表 tds</span></span><br><span class="line">        <span class="comment"># 把排名、大学名字、总分放入 info 列表</span></span><br><span class="line">        info.append([tds[<span class="number">0</span>].string, tds[<span class="number">1</span>].string, tds[<span class="number">4</span>].string])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p><img src="C:\Users\詹光辉\Documents\自定义控件.png" alt="自定义控件"></p>
-</li>
-</ol>
+<p><code>find_all()</code>查找所有符合条件的元素</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    url = <span class="string">&quot;https://www.shiyanlou.com/courses/&quot;</span></span><br><span class="line">    r = requests.get(url)</span><br><span class="line">    r.raise_for_status  <span class="comment"># 查看状态码是否正确</span></span><br><span class="line">    r.encoding = r.apparent_encoding  <span class="comment"># 转换成 utf-8 的编码形式</span></span><br><span class="line">    demo = r.text  <span class="comment"># 获取页面内容并赋值给定义变量 demo</span></span><br><span class="line">    print(demo)</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    print(<span class="string">&quot;未能获取页面内容&quot;</span>)</span><br><span class="line">    </span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line">soup = BeautifulSoup(demo, <span class="string">&#x27;html.parser&#x27;</span>)</span><br><span class="line"></span><br><span class="line">div = soup.find(<span class="string">&#x27;body&#x27;</span>).div  <span class="comment"># 搜索 body 中的 div 标签，然后赋值给定义变量 div</span></span><br><span class="line"></span><br><span class="line">a = div.find_all(<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;link block&#x27;</span>)  <span class="comment"># 搜索所有属性名为 link block 的 a 标签</span></span><br><span class="line"></span><br><span class="line">href_list = []  <span class="comment"># 用来存储课程链接的列表</span></span><br><span class="line">div_list = []  <span class="comment"># 用来存储 div 标签的列表</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> a:  <span class="comment"># 遍历 a 标签</span></span><br><span class="line">    href_list.append(<span class="string">&quot;https://www.shiyanlou.com&quot;</span> +</span><br><span class="line">                     i.get(<span class="string">&#x27;href&#x27;</span>))  <span class="comment"># 把课程地址存入 href_list 列表里</span></span><br><span class="line">    <span class="comment"># 把属性名为 course-cover relative 的 div 标签存入 div_list 列表里</span></span><br><span class="line">    div_list.append(i.find(<span class="string">&#x27;div&#x27;</span>, <span class="string">&#x27;course-cover relative&#x27;</span>))</span><br><span class="line"></span><br><span class="line">print(href_list)</span><br><span class="line">print(div_list)</span><br><span class="line"></span><br><span class="line">img_list = []  <span class="comment"># 用来存储 img 标签的列表</span></span><br><span class="line">names = []  <span class="comment"># 用来存储课程名字的列表</span></span><br><span class="line">info_dict = &#123;&#125;  <span class="comment"># 保存数据的字典</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> div_list:  <span class="comment"># 遍历 div 标签列表</span></span><br><span class="line">    img_list.append(i.find(<span class="string">&#x27;img&#x27;</span>))  <span class="comment"># 搜索 img 标签并添加到 img_list 列表里</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> img_list:  <span class="comment"># 遍历 img 标签列表</span></span><br><span class="line">    names.append(i.get(<span class="string">&#x27;alt&#x27;</span>))  <span class="comment"># 把课程名字保存到 names 列表里</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(names)):  <span class="comment"># 遍历 names 列表的下标值</span></span><br><span class="line">    <span class="comment"># 把课程名字作为字典的 Key，把课程的链接作为课程的 Value，并保存到 info 字典里</span></span><br><span class="line">    info_dict[names[i]] = href_list[i]</span><br><span class="line"></span><br><span class="line">info_dict</span><br></pre></td></tr></table></figure>
+
 ]]></content>
   </entry>
   <entry>
@@ -143,12 +56,199 @@ dialog.show();
 ]]></content>
   </entry>
   <entry>
-    <title>Hi World</title>
-    <url>/2020/12/08/Hi-World/</url>
-    <content><![CDATA[]]></content>
-      <tags>
-        <tag>标签1</tag>
-      </tags>
+    <title></title>
+    <url>/2020/12/09/JavaScript%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h6 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h6><p>JavaScript代码可以直接嵌在网页的任何地方，不过通常我们都把JavaScript代码放到<code>&lt;head&gt;</code>中：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    alert(<span class="string">&#x27;Hello, world&#x27;</span>);</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>第二种方法是把JavaScript代码放到一个单独的<code>.js</code>文件，然后在HTML中通过<code>&lt;script src=&quot;...&quot;&gt;&lt;/script&gt;</code>引入这个文件：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;/static/js/abc.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h6><ol>
+<li>JavaScript的语法和Java语言类似，每个语句以<code>;</code>结束，语句块用<code>&#123;...&#125;</code>。但是，JavaScript并不强制要求在每个语句的结尾加<code>;</code></li>
+</ol>
+<h6 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h6><ol>
+<li><p>JavaScript不区分整数和浮点数，统一用Number表示</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="number">123</span>; <span class="comment">// 整数123</span></span><br><span class="line"><span class="number">0.456</span>; <span class="comment">// 浮点数0.456</span></span><br><span class="line"><span class="number">1.2345e3</span>; <span class="comment">// 科学计数法表示1.2345x1000，等同于1234.5</span></span><br><span class="line">-<span class="number">99</span>; <span class="comment">// 负数</span></span><br><span class="line"><span class="literal">NaN</span>; <span class="comment">// NaN表示Not a Number，当无法计算结果时用NaN表示</span></span><br><span class="line"><span class="literal">Infinity</span>; <span class="comment">// Infinity表示无限大，当数值超过了JavaScript的Number所能表示的最大值时，就表示为Infinity</span></span><br><span class="line"><span class="number">2</span> / <span class="number">0</span>; <span class="comment">// Infinity</span></span><br><span class="line"><span class="number">0</span> / <span class="number">0</span>; <span class="comment">// NaN</span></span><br><span class="line"><span class="number">10</span> % <span class="number">3</span>; <span class="comment">// 1</span></span><br><span class="line"><span class="number">10.5</span> % <span class="number">3</span>; <span class="comment">// 1.5</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>字符串</p>
+</li>
+<li><p>布尔值</p>
+<p><code>&amp;&amp;</code>运算是与运算，<code>||</code>运算是或运算，<code>!</code>运算是非运算</p>
+</li>
+<li><p>比较运算符</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="literal">false</span> == <span class="number">0</span>; <span class="comment">// true</span></span><br><span class="line"><span class="literal">false</span> === <span class="number">0</span>; <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<p>要特别注意相等运算符<code>==</code>。JavaScript在设计时，有两种比较运算符：</p>
+<p>第一种是<code>==</code>比较，它会自动转换数据类型再比较，很多时候，会得到非常诡异的结果；</p>
+<p>第二种是<code>===</code>比较，它不会自动转换数据类型，如果数据类型不一致，返回<code>false</code>，如果一致，再比较。</p>
+<p>由于JavaScript这个设计缺陷，<font color="red">不要</font>使用<code>==</code>比较，始终坚持使用<code>===</code>比较。</p>
+<hr>
+<p>另一个例外是<code>NaN</code>这个特殊的Number与所有其他值都不相等，包括它自己：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="literal">NaN</span> === <span class="literal">NaN</span>; <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<p>唯一能判断<code>NaN</code>的方法是通过<code>isNaN()</code>函数：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">isNaN</span>(<span class="literal">NaN</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>浮点数在运算过程中会产生误差，因为计算机无法精确表示无限循环小数。要比较两个浮点数是否相等，只能计算它们之差的绝对值，看是否小于某个阈值：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Math</span>.abs(<span class="number">1</span> / <span class="number">3</span> - (<span class="number">1</span> - <span class="number">2</span> / <span class="number">3</span>)) &lt; <span class="number">0.0000001</span>; <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>null和undefined</p>
+<p><code>null</code>表示一个“空”的值，它和<code>0</code>以及空字符串<code>&#39;&#39;</code>不同，<code>0</code>是一个数值，<code>&#39;&#39;</code>表示长度为0的字符串，而<code>null</code>表示“空”。</p>
+<p>还有一个和<code>null</code>类似的<code>undefined</code>，它表示“未定义”，大多数情况下，我们都应该用<code>null</code>。<code>undefined</code>仅仅在判断函数参数是否传递的情况下有用。</p>
+</li>
+<li><p>数组</p>
+<p>数组是一组按顺序排列的集合，集合的每个值称为元素。JavaScript的数组可以包括任意数据类型。例如：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3.14</span>, <span class="string">&#x27;Hello&#x27;</span>, <span class="literal">null</span>, <span class="literal">true</span>];</span><br></pre></td></tr></table></figure>
+
+<p>另一种创建数组的方法是通过<code>Array()</code>函数实现：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>); <span class="comment">// 创建了数组[1, 2, 3]</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对象</p>
+<p>JavaScript的对象是一组由键-值组成的无序集合，例如：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">    name: <span class="string">&#x27;Bob&#x27;</span>,</span><br><span class="line">    age: <span class="number">20</span>,</span><br><span class="line">    tags: [<span class="string">&#x27;js&#x27;</span>, <span class="string">&#x27;web&#x27;</span>, <span class="string">&#x27;mobile&#x27;</span>],</span><br><span class="line">    city: <span class="string">&#x27;Beijing&#x27;</span>,</span><br><span class="line">    hasCar: <span class="literal">true</span>,</span><br><span class="line">    zipcode: <span class="literal">null</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>要获取一个对象的属性，我们用<code>对象变量.属性名</code>的方式：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">person.name; <span class="comment">// &#x27;Bob&#x27;</span></span><br><span class="line">person.zipcode; <span class="comment">// null</span></span><br></pre></td></tr></table></figure>
+
+<p>要显示变量的内容，可以用<code>console.log(x)</code>，打开Chrome的控制台就可以看到结果。</p>
+</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2020/12/09/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="HTML基础"><a href="#HTML基础" class="headerlink" title="HTML基础"></a>HTML基础</h1><h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><ul>
+<li>后缀为htm或html</li>
+<li>标签分为：<ul>
+<li>围堵标签：<code> &lt;html&gt;&lt;/html&gt;</code></li>
+<li>自闭和标签：<code>&lt;br/&gt;</code></li>
+<li>可以在开始标签自定义属性，属性由键值组成</li>
+</ul>
+</li>
+</ul>
+<h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><ol>
+<li><p>文件标签</p>
+<ul>
+<li><code>html</code>：html文档的根</li>
+<li><code>head</code>：头标签，指定html属性，引用外部资源</li>
+<li><code>title</code>：标题标签</li>
+<li><code>body</code>：体标签</li>
+</ul>
+</li>
+<li><p>文本标签</p>
+<ul>
+<li><p>注释：<code>&lt;!-- 注释内容 --&gt;</code></p>
+</li>
+<li><p><code>&lt;h1&gt; to &lt;h6&gt;</code>：标题标签，越来越小</p>
+</li>
+<li><p><code>&lt;p&gt;</code>：段落标签，间隔一个空行</p>
+</li>
+<li><p><code>&lt;br/&gt;</code>：换行</p>
+</li>
+<li><p><code>&lt;hr/&gt;</code>：一条水平线，<code>color</code>,<code>width</code>,<code>size</code>,<code>align=left</code></p>
+</li>
+<li><p><code>&lt;b&gt;</code>：字体加粗</p>
+</li>
+<li><p><code>&lt;i&gt;</code>：字体倾斜</p>
+</li>
+<li><p><code>&lt;font&gt;</code>：字体标签，<code>color</code>,<code>width</code>,<code>face</code></p>
+</li>
+<li><p>特殊字符：空格：<code>&amp;nbsp</code>，版权：<code>&amp;copy</code></p>
+</li>
+</ul>
+</li>
+<li><p>图片标签</p>
+<ul>
+<li><code>&lt;img/&gt;</code><ul>
+<li><code>src</code>指定路径，使用相对路径</li>
+<li><code>align</code>对齐方式</li>
+<li><code>alt</code>图片加载失败文字</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>列表标签</p>
+<ul>
+<li>有序列表<ul>
+<li><code>&lt;ol&gt;</code>：<code>type</code>属性序号样式，<code>start</code>开始序号</li>
+<li><code>&lt;li&gt;</code>：列表每一项</li>
+</ul>
+</li>
+<li>无序列表<ul>
+<li><code>&lt;ul&gt;</code>：<code>type</code>:<code>disc/square/circle</code></li>
+<li><code>&lt;li&gt;</code>：列表每一项</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>超链接</p>
+<ul>
+<li><code>&lt;a&gt;</code><ul>
+<li><code>href</code>：指定链接</li>
+<li><code>target</code>:<code>_blank</code>：新标签页</li>
+<li>可以包含图片标签<code>&lt;img/&gt;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>表格标签</p>
+<ul>
+<li><p><code>&lt;caption&gt;</code>：表格标题</p>
+</li>
+<li><p><code>&lt;table&gt;</code>：定义表格</p>
+<ul>
+<li><code>border</code>：边框</li>
+<li><code>align</code></li>
+<li><code>cellpadding</code>:0</li>
+<li><code>cellspacing</code>:0</li>
+<li><code>bgcolor</code>：背景色</li>
+</ul>
+</li>
+<li><p><code>&lt;tr&gt;</code>：定义行</p>
+<ul>
+<li><code>bgcolor</code></li>
+<li><code>align</code></li>
+</ul>
+</li>
+<li><p><code>&lt;td&gt;</code>：定义单元格</p>
+<ul>
+<li><code>cilspan</code>：</li>
+<li><code>rowsan</code></li>
+</ul>
+</li>
+<li><p><code>&lt;th&gt;</code>：定义表头单元格，自动居中加粗</p>
+</li>
+<li><p>配合CSS：</p>
+</li>
+<li><p><code>&lt;thead&gt;</code>：表格头部分</p>
+</li>
+<li><p><code>&lt;tbody&gt;</code>：体部分</p>
+</li>
+<li><p><code>&lt;tfoot&gt;</code>尾部分</p>
+</li>
+</ul>
+</li>
+<li><p>块标签：</p>
+<ul>
+<li><p>配合CSS：</p>
+</li>
+<li><p><code>&lt;span&gt;</code>：没有任何效果，文本在一行展示，行内标签，内联标签</p>
+</li>
+<li><p><code>&lt;div&gt;</code>：没有样式，自动换行</p>
+</li>
+</ul>
+</li>
+<li><p>语义化标签</p>
+<ul>
+<li><code>&lt;header&gt;</code>：开头部分</li>
+<li><code>&lt;footor&gt;</code>：结尾部分</li>
+</ul>
+</li>
+</ol>
+]]></content>
   </entry>
   <entry>
     <title>Test</title>
