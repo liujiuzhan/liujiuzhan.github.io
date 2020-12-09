@@ -32,6 +32,36 @@
 ]]></content>
   </entry>
   <entry>
+    <title>C++中的vector</title>
+    <url>/2020/12/09/C++/</url>
+    <content><![CDATA[<h2 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h2><ol>
+<li>声明：<code>vector(int) ivec(10);</code></li>
+<li>声明并初始化：<code>vector(int) ivec(10,-1);</code>初始化为-1</li>
+</ol>
+<a id="more"></a>
+
+<ol>
+<li>不能显式初始化，但可以借用数组：需要指定开始地址和末尾地址：</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> ia[<span class="number">6</span>] = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>&#125;;</span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">ivec</span><span class="params">(ia,ia+<span class="number">6</span>)</span></span>;<span class="comment">//第二个指针指向被拷贝元素的下一个位置</span></span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">ivec</span><span class="params">(&amp;ia[<span class="number">2</span>], &amp;ia[<span class="number">5</span>])</span><span class="comment">//拷贝三个元素</span></span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>使用<code>push_back()</code>在末尾插入元素：</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">string</span> word;</span><br><span class="line"><span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;word)&#123;</span><br><span class="line">    text.push_back(word);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>使用<code>begin()</code>和<code>end()</code>返回的迭代器：</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="built_in">vector</span>(<span class="built_in">string</span>)::iterator it = text.begin(); it!=text.end(); it++)&#123;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;*it&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><ol>
+<li><code>const</code>把对象变为常量，使其只读，<code>const</code>指针对象可以被重新赋值，但不能修改指向的对象</li>
+<li>引用必须初始化为指向一个对象</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
     <title>HTML基础</title>
     <url>/2020/10/09/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><ul>
@@ -173,77 +203,6 @@
       </tags>
   </entry>
   <entry>
-    <title>C++中的vector</title>
-    <url>/2020/12/09/C++/</url>
-    <content><![CDATA[<h2 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h2><ol>
-<li>声明：<code>vector(int) ivec(10);</code></li>
-<li>声明并初始化：<code>vector(int) ivec(10,-1);</code>初始化为-1</li>
-</ol>
-<a id="more"></a>
-
-<ol>
-<li>不能显式初始化，但可以借用数组：需要指定开始地址和末尾地址：</li>
-</ol>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> ia[<span class="number">6</span>] = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>&#125;;</span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">ivec</span><span class="params">(ia,ia+<span class="number">6</span>)</span></span>;<span class="comment">//第二个指针指向被拷贝元素的下一个位置</span></span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">ivec</span><span class="params">(&amp;ia[<span class="number">2</span>], &amp;ia[<span class="number">5</span>])</span><span class="comment">//拷贝三个元素</span></span></span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>使用<code>push_back()</code>在末尾插入元素：</li>
-</ol>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">string</span> word;</span><br><span class="line"><span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;word)&#123;</span><br><span class="line">    text.push_back(word);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>使用<code>begin()</code>和<code>end()</code>返回的迭代器：</li>
-</ol>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="built_in">vector</span>(<span class="built_in">string</span>)::iterator it = text.begin(); it!=text.end(); it++)&#123;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;*it&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><ol>
-<li><code>const</code>把对象变为常量，使其只读，<code>const</code>指针对象可以被重新赋值，但不能修改指向的对象</li>
-<li>引用必须初始化为指向一个对象</li>
-</ol>
-]]></content>
-  </entry>
-  <entry>
-    <title>Python实验一部分代码</title>
-    <url>/2020/12/09/Test/</url>
-    <content><![CDATA[<h2 id="1、猜数字游戏"><a href="#1、猜数字游戏" class="headerlink" title="1、猜数字游戏"></a>1、猜数字游戏</h2><a id="more"></a>
-
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">guess_while</span>():</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot; 猜数字 &quot;&quot;&quot;</span></span><br><span class="line">    answer = random.randint(<span class="number">1</span>, <span class="number">100</span>)</span><br><span class="line">    player_times = random.randint(<span class="number">1</span>, <span class="number">10</span>)</span><br><span class="line">    <span class="keyword">while</span> player_times &gt; <span class="number">0</span>:</span><br><span class="line">        player_input = <span class="built_in">input</span>(<span class="string">&quot;你有 %d 次机会，输入你猜的数字（1~100）：&quot;</span> % player_times)</span><br><span class="line">        player_input = <span class="built_in">int</span>(player_input)</span><br><span class="line">        <span class="keyword">if</span> player_input == answer:</span><br><span class="line">            print(<span class="string">&quot;Congratulations!&quot;</span>)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">elif</span> player_input &gt; answer:</span><br><span class="line">            print(<span class="string">&quot;Too large&quot;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(<span class="string">&quot;Too small&quot;</span>)</span><br><span class="line">        player_times -= <span class="number">1</span></span><br><span class="line">    print(<span class="string">&quot;Game Over! The answer is: &quot;</span>, answer)</span><br></pre></td></tr></table></figure>
-
-<h2 id="2、斐波那契数列"><a href="#2、斐波那契数列" class="headerlink" title="2、斐波那契数列"></a>2、斐波那契数列</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib</span>(<span class="params">n</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot; 斐波那契数列 &quot;&quot;&quot;</span></span><br><span class="line">    a, b = <span class="number">1</span>, <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> a &lt; n:</span><br><span class="line">        print(a, end=<span class="string">&#x27; &#x27;</span>)</span><br><span class="line">        a, b = b, a + b</span><br></pre></td></tr></table></figure>
-
-<h2 id="3、字符串交接"><a href="#3、字符串交接" class="headerlink" title="3、字符串交接"></a>3、字符串交接</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">strIntersection</span>(<span class="params">str1, str2</span>):</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(str1)):</span><br><span class="line">        <span class="keyword">if</span> str2.startswith(str1[i:<span class="built_in">len</span>(str1)]):</span><br><span class="line">            <span class="keyword">return</span> (str1[:i] + str2)</span><br></pre></td></tr></table></figure>
-
-
-
-]]></content>
-      <categories>
-        <category>Test python exercise</category>
-      </categories>
-      <tags>
-        <tag>Test</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2020/12/08/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<a id="more"></a>
-
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>JavaScript学习笔记</title>
     <url>/2020/09/09/JavaScript%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<p>JavaScript代码可以直接嵌在网页的任何地方，不过通常我们都把JavaScript代码放到<code>&lt;head&gt;</code>中：</p>
@@ -311,6 +270,47 @@
       </categories>
       <tags>
         <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2020/12/08/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<a id="more"></a>
+
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Python实验一部分代码</title>
+    <url>/2020/12/09/Test/</url>
+    <content><![CDATA[<h2 id="1、猜数字游戏"><a href="#1、猜数字游戏" class="headerlink" title="1、猜数字游戏"></a>1、猜数字游戏</h2><a id="more"></a>
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">guess_while</span>():</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot; 猜数字 &quot;&quot;&quot;</span></span><br><span class="line">    answer = random.randint(<span class="number">1</span>, <span class="number">100</span>)</span><br><span class="line">    player_times = random.randint(<span class="number">1</span>, <span class="number">10</span>)</span><br><span class="line">    <span class="keyword">while</span> player_times &gt; <span class="number">0</span>:</span><br><span class="line">        player_input = <span class="built_in">input</span>(<span class="string">&quot;你有 %d 次机会，输入你猜的数字（1~100）：&quot;</span> % player_times)</span><br><span class="line">        player_input = <span class="built_in">int</span>(player_input)</span><br><span class="line">        <span class="keyword">if</span> player_input == answer:</span><br><span class="line">            print(<span class="string">&quot;Congratulations!&quot;</span>)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">elif</span> player_input &gt; answer:</span><br><span class="line">            print(<span class="string">&quot;Too large&quot;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(<span class="string">&quot;Too small&quot;</span>)</span><br><span class="line">        player_times -= <span class="number">1</span></span><br><span class="line">    print(<span class="string">&quot;Game Over! The answer is: &quot;</span>, answer)</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、斐波那契数列"><a href="#2、斐波那契数列" class="headerlink" title="2、斐波那契数列"></a>2、斐波那契数列</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib</span>(<span class="params">n</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot; 斐波那契数列 &quot;&quot;&quot;</span></span><br><span class="line">    a, b = <span class="number">1</span>, <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> a &lt; n:</span><br><span class="line">        print(a, end=<span class="string">&#x27; &#x27;</span>)</span><br><span class="line">        a, b = b, a + b</span><br></pre></td></tr></table></figure>
+
+<h2 id="3、字符串交接"><a href="#3、字符串交接" class="headerlink" title="3、字符串交接"></a>3、字符串交接</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">strIntersection</span>(<span class="params">str1, str2</span>):</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(str1)):</span><br><span class="line">        <span class="keyword">if</span> str2.startswith(str1[i:<span class="built_in">len</span>(str1)]):</span><br><span class="line">            <span class="keyword">return</span> (str1[:i] + str2)</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>Test python exercise</category>
+      </categories>
+      <tags>
+        <tag>Test</tag>
       </tags>
   </entry>
 </search>
