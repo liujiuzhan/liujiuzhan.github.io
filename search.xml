@@ -32,36 +32,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>C++中的vector</title>
-    <url>/2020/12/09/C++/</url>
-    <content><![CDATA[<h2 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h2><ol>
-<li>声明：<code>vector(int) ivec(10);</code></li>
-<li>声明并初始化：<code>vector(int) ivec(10,-1);</code>初始化为-1</li>
-</ol>
-<a id="more"></a>
-
-<ol>
-<li>不能显式初始化，但可以借用数组：需要指定开始地址和末尾地址：</li>
-</ol>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> ia[<span class="number">6</span>] = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>&#125;;</span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">ivec</span><span class="params">(ia,ia+<span class="number">6</span>)</span></span>;<span class="comment">//第二个指针指向被拷贝元素的下一个位置</span></span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">ivec</span><span class="params">(&amp;ia[<span class="number">2</span>], &amp;ia[<span class="number">5</span>])</span><span class="comment">//拷贝三个元素</span></span></span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>使用<code>push_back()</code>在末尾插入元素：</li>
-</ol>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">string</span> word;</span><br><span class="line"><span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;word)&#123;</span><br><span class="line">    text.push_back(word);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>使用<code>begin()</code>和<code>end()</code>返回的迭代器：</li>
-</ol>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="built_in">vector</span>(<span class="built_in">string</span>)::iterator it = text.begin(); it!=text.end(); it++)&#123;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;*it&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><ol>
-<li><code>const</code>把对象变为常量，使其只读，<code>const</code>指针对象可以被重新赋值，但不能修改指向的对象</li>
-<li>引用必须初始化为指向一个对象</li>
-</ol>
-]]></content>
-  </entry>
-  <entry>
     <title>HTML基础</title>
     <url>/2020/10/09/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><ul>
@@ -201,6 +171,36 @@
       <tags>
         <tag>HTML</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>C++中的vector</title>
+    <url>/2020/12/09/C++/</url>
+    <content><![CDATA[<h2 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h2><ol>
+<li>声明：<code>vector(int) ivec(10);</code></li>
+<li>声明并初始化：<code>vector(int) ivec(10,-1);</code>初始化为-1</li>
+</ol>
+<a id="more"></a>
+
+<ol>
+<li>不能显式初始化，但可以借用数组：需要指定开始地址和末尾地址：</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> ia[<span class="number">6</span>] = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>&#125;;</span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">ivec</span><span class="params">(ia,ia+<span class="number">6</span>)</span></span>;<span class="comment">//第二个指针指向被拷贝元素的下一个位置</span></span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">ivec</span><span class="params">(&amp;ia[<span class="number">2</span>], &amp;ia[<span class="number">5</span>])</span><span class="comment">//拷贝三个元素</span></span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>使用<code>push_back()</code>在末尾插入元素：</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">string</span> word;</span><br><span class="line"><span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;word)&#123;</span><br><span class="line">    text.push_back(word);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>使用<code>begin()</code>和<code>end()</code>返回的迭代器：</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="built_in">vector</span>(<span class="built_in">string</span>)::iterator it = text.begin(); it!=text.end(); it++)&#123;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;*it&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><ol>
+<li><code>const</code>把对象变为常量，使其只读，<code>const</code>指针对象可以被重新赋值，但不能修改指向的对象</li>
+<li>引用必须初始化为指向一个对象</li>
+</ol>
+]]></content>
   </entry>
   <entry>
     <title>JavaScript学习笔记</title>
