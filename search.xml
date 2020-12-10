@@ -1,36 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>C++中的vector</title>
-    <url>/2020/12/09/C++/</url>
-    <content><![CDATA[<h2 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h2><ol>
-<li>声明：<code>vector(int) ivec(10);</code></li>
-<li>声明并初始化：<code>vector(int) ivec(10,-1);</code>初始化为-1</li>
-</ol>
-<a id="more"></a>
-
-<ol>
-<li>不能显式初始化，但可以借用数组：需要指定开始地址和末尾地址：</li>
-</ol>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> ia[<span class="number">6</span>] = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>&#125;;</span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">ivec</span><span class="params">(ia,ia+<span class="number">6</span>)</span></span>;<span class="comment">//第二个指针指向被拷贝元素的下一个位置</span></span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">ivec</span><span class="params">(&amp;ia[<span class="number">2</span>], &amp;ia[<span class="number">5</span>])</span><span class="comment">//拷贝三个元素</span></span></span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>使用<code>push_back()</code>在末尾插入元素：</li>
-</ol>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">string</span> word;</span><br><span class="line"><span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;word)&#123;</span><br><span class="line">    text.push_back(word);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>使用<code>begin()</code>和<code>end()</code>返回的迭代器：</li>
-</ol>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="built_in">vector</span>(<span class="built_in">string</span>)::iterator it = text.begin(); it!=text.end(); it++)&#123;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;*it&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><ol>
-<li><code>const</code>把对象变为常量，使其只读，<code>const</code>指针对象可以被重新赋值，但不能修改指向的对象</li>
-<li>引用必须初始化为指向一个对象</li>
-</ol>
-]]></content>
-  </entry>
-  <entry>
     <title>Beautiful入门</title>
     <url>/2020/12/09/Beautiful%E5%85%A5%E9%97%A8/</url>
     <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data = soup.find(<span class="string">&quot;tbody&quot;</span>).children</span><br></pre></td></tr></table></figure>
@@ -60,6 +30,10 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    url = <span class="string">&quot;https://www.shiyanlou.com/courses/&quot;</span></span><br><span class="line">    r = requests.get(url)</span><br><span class="line">    r.raise_for_status  <span class="comment"># 查看状态码是否正确</span></span><br><span class="line">    r.encoding = r.apparent_encoding  <span class="comment"># 转换成 utf-8 的编码形式</span></span><br><span class="line">    demo = r.text  <span class="comment"># 获取页面内容并赋值给定义变量 demo</span></span><br><span class="line">    print(demo)</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    print(<span class="string">&quot;未能获取页面内容&quot;</span>)</span><br><span class="line">    </span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line">soup = BeautifulSoup(demo, <span class="string">&#x27;html.parser&#x27;</span>)</span><br><span class="line"></span><br><span class="line">div = soup.find(<span class="string">&#x27;body&#x27;</span>).div  <span class="comment"># 搜索 body 中的 div 标签，然后赋值给定义变量 div</span></span><br><span class="line"></span><br><span class="line">a = div.find_all(<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;link block&#x27;</span>)  <span class="comment"># 搜索所有属性名为 link block 的 a 标签</span></span><br><span class="line"></span><br><span class="line">href_list = []  <span class="comment"># 用来存储课程链接的列表</span></span><br><span class="line">div_list = []  <span class="comment"># 用来存储 div 标签的列表</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> a:  <span class="comment"># 遍历 a 标签</span></span><br><span class="line">    href_list.append(<span class="string">&quot;https://www.shiyanlou.com&quot;</span> +</span><br><span class="line">                     i.get(<span class="string">&#x27;href&#x27;</span>))  <span class="comment"># 把课程地址存入 href_list 列表里</span></span><br><span class="line">    <span class="comment"># 把属性名为 course-cover relative 的 div 标签存入 div_list 列表里</span></span><br><span class="line">    div_list.append(i.find(<span class="string">&#x27;div&#x27;</span>, <span class="string">&#x27;course-cover relative&#x27;</span>))</span><br><span class="line"></span><br><span class="line">print(href_list)</span><br><span class="line">print(div_list)</span><br><span class="line"></span><br><span class="line">img_list = []  <span class="comment"># 用来存储 img 标签的列表</span></span><br><span class="line">names = []  <span class="comment"># 用来存储课程名字的列表</span></span><br><span class="line">info_dict = &#123;&#125;  <span class="comment"># 保存数据的字典</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> div_list:  <span class="comment"># 遍历 div 标签列表</span></span><br><span class="line">    img_list.append(i.find(<span class="string">&#x27;img&#x27;</span>))  <span class="comment"># 搜索 img 标签并添加到 img_list 列表里</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> img_list:  <span class="comment"># 遍历 img 标签列表</span></span><br><span class="line">    names.append(i.get(<span class="string">&#x27;alt&#x27;</span>))  <span class="comment"># 把课程名字保存到 names 列表里</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(names)):  <span class="comment"># 遍历 names 列表的下标值</span></span><br><span class="line">    <span class="comment"># 把课程名字作为字典的 Key，把课程的链接作为课程的 Value，并保存到 info 字典里</span></span><br><span class="line">    info_dict[names[i]] = href_list[i]</span><br><span class="line"></span><br><span class="line">info_dict</span><br></pre></td></tr></table></figure>
 
 ]]></content>
+      <tags>
+        <tag>Beautiful</tag>
+        <tag>爬虫</tag>
+      </tags>
   </entry>
   <entry>
     <title>HTML基础</title>
@@ -203,6 +177,108 @@
       </tags>
   </entry>
   <entry>
+    <title>C++中的vector</title>
+    <url>/2020/12/09/C++/</url>
+    <content><![CDATA[<h2 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h2><ol>
+<li>声明：<code>vector(int) ivec(10);</code></li>
+<li>声明并初始化：<code>vector(int) ivec(10,-1);</code>初始化为-1</li>
+</ol>
+<a id="more"></a>
+
+<ol>
+<li>不能显式初始化，但可以借用数组：需要指定开始地址和末尾地址：</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> ia[<span class="number">6</span>] = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>&#125;;</span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">ivec</span><span class="params">(ia,ia+<span class="number">6</span>)</span></span>;<span class="comment">//第二个指针指向被拷贝元素的下一个位置</span></span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">ivec</span><span class="params">(&amp;ia[<span class="number">2</span>], &amp;ia[<span class="number">5</span>])</span><span class="comment">//拷贝三个元素</span></span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>使用<code>push_back()</code>在末尾插入元素：</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">string</span> word;</span><br><span class="line"><span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;word)&#123;</span><br><span class="line">    text.push_back(word);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>使用<code>begin()</code>和<code>end()</code>返回的迭代器：</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="built_in">vector</span>(<span class="built_in">string</span>)::iterator it = text.begin(); it!=text.end(); it++)&#123;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;*it&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><ol>
+<li><code>const</code>把对象变为常量，使其只读，<code>const</code>指针对象可以被重新赋值，但不能修改指向的对象</li>
+<li>引用必须初始化为指向一个对象</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>Hexo搭建博客遇到的坑</title>
+    <url>/2020/12/09/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/</url>
+    <content><![CDATA[<h2 id="1、git-clone速度慢的问题"><a href="#1、git-clone速度慢的问题" class="headerlink" title="1、git clone速度慢的问题"></a>1、git clone速度慢的问题</h2><p>为博客配置主题时需要从github仓库clone文件，即在git bash执行命令：</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">git clone https:<span class="regexp">//gi</span>thub.com<span class="regexp">/theme-next/</span>hexo-theme-<span class="keyword">next</span> themes/<span class="keyword">next</span></span><br></pre></td></tr></table></figure>
+
+<p>执行后发现从仓库clone的速度非常慢，大概只有4k~8K，即使挂了飞机下载速度依旧没有提高（不排出使用的节点有问题）</p>
+<p>解决问题的办法是使用镜像网站，即在<code>github.com</code>后面加上<code>cnpmjs.org</code>，更改后如下：</p>
+<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line"><span class="deletion">-git clone https://github.com/theme-next/hexo-theme-next themes/next</span></span><br><span class="line"><span class="addition">+git clone https://github.com.cnpmjs.org/theme-next/hexo-theme-next themes/next</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2、网站加载速度慢问题"><a href="#2、网站加载速度慢问题" class="headerlink" title="2、网站加载速度慢问题"></a>2、网站加载速度慢问题</h2><p>因为博客是依托于github搭建的，在国内访问github本来就很慢，所以提高加载速度的办法之一是修改自己的资源文件。</p>
+<h3 id="寻找是什么资源影响加载速度"><a href="#寻找是什么资源影响加载速度" class="headerlink" title="寻找是什么资源影响加载速度"></a>寻找是什么资源影响加载速度</h3><p>访问博客时打开浏览器的开发者工具，并切换到<code>Network</code>栏：</p>
+<p><img src="http://i1.fuimg.com/730680/49e3fdeb6b894afb.png"></p>
+<p>等网页加载完成后就可以看到是什么原因拖慢了加载速度：</p>
+<p><img src="http://i1.fuimg.com/730680/17e8c6b10843f3f8.png"></p>
+<h3 id="图片加载"><a href="#图片加载" class="headerlink" title="图片加载"></a>图片加载</h3><p>我最初使用路径下的图片作为头像，加载头像大概需要20秒，后来使用图片外链，几百毫秒就加载完成了。所以对于由图片引起的加载慢问题，可以使用图床。以外链的方式将图片加入文章中。</p>
+<h3 id="动画加载"><a href="#动画加载" class="headerlink" title="动画加载"></a>动画加载</h3><p>JavaScript生成的动画背景也对网页的加载速度的影响很大，可以依自己的意愿决定是否关闭。</p>
+<h2 id="3、创建文章时自动打开编辑器"><a href="#3、创建文章时自动打开编辑器" class="headerlink" title="3、创建文章时自动打开编辑器"></a>3、创建文章时自动打开编辑器</h2><p>一般情况下，我们写一篇需要以下两个过程：</p>
+<ol>
+<li>在git bash中使用命令创建一篇文章：</li>
+</ol>
+<figure class="highlight haxe"><table><tr><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> <span class="type"></span>文章名称</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>关闭git bash，打开<code>source\_posts</code>目录下的<code>文章名称.md</code>，开始码字。</li>
+</ol>
+<p>显然以上两个步骤连在一起有点繁琐，可以将其合在一起。办法就是在根目录下新建一个scripts文件夹，在里面新建一个js文件，名字可以随便起，在文件中加入以下代码：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> spawn = <span class="built_in">require</span>(<span class="string">&#x27;child_process&#x27;</span>).exec;</span><br><span class="line">hexo.on(<span class="string">&#x27;new&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">  spawn(<span class="string">&#x27;start  &quot;D:\\Program Files\\Typora\\Typora.exe&quot; &#x27;</span> + data.path);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>原理就是监听<code>hexo new</code>命令，这样当我们使用命令创建新文件是，选中的编辑器就会自动打开新建的文件。</p>
+<h2 id="4、显示文章摘要的方法"><a href="#4、显示文章摘要的方法" class="headerlink" title="4、显示文章摘要的方法"></a>4、显示文章摘要的方法</h2><p>不知道什么原因，我的next主题的配置文件夹下没有自动生成摘要相关的配置，即：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">auto_excerpt</span>:</span><br><span class="line">  <span class="selector-tag">enable</span>: <span class="selector-tag">true</span></span><br><span class="line">  <span class="selector-tag">length</span>: 150</span><br></pre></td></tr></table></figure>
+
+<p>所以生成文章摘要只有两种办法：</p>
+<ol>
+<li>在文章开头处使用<code>description</code>字段：</li>
+</ol>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title:</span><br><span class="line">date:</span><br><span class="line">description: 文章摘要</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>使用<code>&lt;!--more--&gt;</code>在原文中截断部分文字作为摘要。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>经验</category>
+      </categories>
+      <tags>
+        <tag>一些坑</tag>
+        <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python实验一部分代码</title>
+    <url>/2020/12/09/Test/</url>
+    <content><![CDATA[<h2 id="1、猜数字游戏"><a href="#1、猜数字游戏" class="headerlink" title="1、猜数字游戏"></a>1、猜数字游戏</h2><a id="more"></a>
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">guess_while</span>():</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot; 猜数字 &quot;&quot;&quot;</span></span><br><span class="line">    answer = random.randint(<span class="number">1</span>, <span class="number">100</span>)</span><br><span class="line">    player_times = random.randint(<span class="number">1</span>, <span class="number">10</span>)</span><br><span class="line">    <span class="keyword">while</span> player_times &gt; <span class="number">0</span>:</span><br><span class="line">        player_input = <span class="built_in">input</span>(<span class="string">&quot;你有 %d 次机会，输入你猜的数字（1~100）：&quot;</span> % player_times)</span><br><span class="line">        player_input = <span class="built_in">int</span>(player_input)</span><br><span class="line">        <span class="keyword">if</span> player_input == answer:</span><br><span class="line">            print(<span class="string">&quot;Congratulations!&quot;</span>)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">elif</span> player_input &gt; answer:</span><br><span class="line">            print(<span class="string">&quot;Too large&quot;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(<span class="string">&quot;Too small&quot;</span>)</span><br><span class="line">        player_times -= <span class="number">1</span></span><br><span class="line">    print(<span class="string">&quot;Game Over! The answer is: &quot;</span>, answer)</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、斐波那契数列"><a href="#2、斐波那契数列" class="headerlink" title="2、斐波那契数列"></a>2、斐波那契数列</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib</span>(<span class="params">n</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot; 斐波那契数列 &quot;&quot;&quot;</span></span><br><span class="line">    a, b = <span class="number">1</span>, <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> a &lt; n:</span><br><span class="line">        print(a, end=<span class="string">&#x27; &#x27;</span>)</span><br><span class="line">        a, b = b, a + b</span><br></pre></td></tr></table></figure>
+
+<h2 id="3、字符串交接"><a href="#3、字符串交接" class="headerlink" title="3、字符串交接"></a>3、字符串交接</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">strIntersection</span>(<span class="params">str1, str2</span>):</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(str1)):</span><br><span class="line">        <span class="keyword">if</span> str2.startswith(str1[i:<span class="built_in">len</span>(str1)]):</span><br><span class="line">            <span class="keyword">return</span> (str1[:i] + str2)</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>Test python exercise</category>
+      </categories>
+      <tags>
+        <tag>Test</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JavaScript学习笔记</title>
     <url>/2020/09/09/JavaScript%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<p>JavaScript代码可以直接嵌在网页的任何地方，不过通常我们都把JavaScript代码放到<code>&lt;head&gt;</code>中：</p>
@@ -273,27 +349,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Python实验一部分代码</title>
-    <url>/2020/12/09/Test/</url>
-    <content><![CDATA[<h2 id="1、猜数字游戏"><a href="#1、猜数字游戏" class="headerlink" title="1、猜数字游戏"></a>1、猜数字游戏</h2><a id="more"></a>
-
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">guess_while</span>():</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot; 猜数字 &quot;&quot;&quot;</span></span><br><span class="line">    answer = random.randint(<span class="number">1</span>, <span class="number">100</span>)</span><br><span class="line">    player_times = random.randint(<span class="number">1</span>, <span class="number">10</span>)</span><br><span class="line">    <span class="keyword">while</span> player_times &gt; <span class="number">0</span>:</span><br><span class="line">        player_input = <span class="built_in">input</span>(<span class="string">&quot;你有 %d 次机会，输入你猜的数字（1~100）：&quot;</span> % player_times)</span><br><span class="line">        player_input = <span class="built_in">int</span>(player_input)</span><br><span class="line">        <span class="keyword">if</span> player_input == answer:</span><br><span class="line">            print(<span class="string">&quot;Congratulations!&quot;</span>)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">elif</span> player_input &gt; answer:</span><br><span class="line">            print(<span class="string">&quot;Too large&quot;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(<span class="string">&quot;Too small&quot;</span>)</span><br><span class="line">        player_times -= <span class="number">1</span></span><br><span class="line">    print(<span class="string">&quot;Game Over! The answer is: &quot;</span>, answer)</span><br></pre></td></tr></table></figure>
-
-<h2 id="2、斐波那契数列"><a href="#2、斐波那契数列" class="headerlink" title="2、斐波那契数列"></a>2、斐波那契数列</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib</span>(<span class="params">n</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot; 斐波那契数列 &quot;&quot;&quot;</span></span><br><span class="line">    a, b = <span class="number">1</span>, <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> a &lt; n:</span><br><span class="line">        print(a, end=<span class="string">&#x27; &#x27;</span>)</span><br><span class="line">        a, b = b, a + b</span><br></pre></td></tr></table></figure>
-
-<h2 id="3、字符串交接"><a href="#3、字符串交接" class="headerlink" title="3、字符串交接"></a>3、字符串交接</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">strIntersection</span>(<span class="params">str1, str2</span>):</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(str1)):</span><br><span class="line">        <span class="keyword">if</span> str2.startswith(str1[i:<span class="built_in">len</span>(str1)]):</span><br><span class="line">            <span class="keyword">return</span> (str1[:i] + str2)</span><br></pre></td></tr></table></figure>
-
-
-
-]]></content>
-      <categories>
-        <category>Test python exercise</category>
-      </categories>
-      <tags>
-        <tag>Test</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hello World</title>
     <url>/2020/12/08/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -312,56 +367,5 @@
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>Hexo搭建博客遇到的坑</title>
-    <url>/2020/12/09/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/</url>
-    <content><![CDATA[<h2 id="1、git-clone速度慢的问题"><a href="#1、git-clone速度慢的问题" class="headerlink" title="1、git clone速度慢的问题"></a>1、git clone速度慢的问题</h2><p>为博客配置主题时需要从github仓库clone文件，即在git bash执行命令：</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">git clone https:<span class="regexp">//gi</span>thub.com<span class="regexp">/theme-next/</span>hexo-theme-<span class="keyword">next</span> themes/<span class="keyword">next</span></span><br></pre></td></tr></table></figure>
-
-<p>执行后发现从仓库clone的速度非常慢，大概只有4k~8K，即使挂了飞机下载速度依旧没有提高（不排出使用的节点有问题）</p>
-<p>解决问题的办法是使用镜像网站，即在<code>github.com</code>后面加上<code>cnpmjs.org</code>，更改后如下：</p>
-<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line"><span class="deletion">-git clone https://github.com/theme-next/hexo-theme-next themes/next</span></span><br><span class="line"><span class="addition">+git clone https://github.com.cnpmjs.org/theme-next/hexo-theme-next themes/next</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="2、网站加载速度慢问题"><a href="#2、网站加载速度慢问题" class="headerlink" title="2、网站加载速度慢问题"></a>2、网站加载速度慢问题</h2><p>因为博客是依托于github搭建的，在国内访问github本来就很慢，所以提高加载速度的办法之一是修改自己的资源文件。</p>
-<h3 id="寻找是什么资源影响加载速度"><a href="#寻找是什么资源影响加载速度" class="headerlink" title="寻找是什么资源影响加载速度"></a>寻找是什么资源影响加载速度</h3><p>访问博客时打开浏览器的开发者工具，并切换到<code>Network</code>栏：</p>
-<p><img src="http://i1.fuimg.com/730680/49e3fdeb6b894afb.png"></p>
-<p>等网页加载完成后就可以看到是什么原因拖慢了加载速度：</p>
-<p><img src="http://i1.fuimg.com/730680/17e8c6b10843f3f8.png"></p>
-<h3 id="图片加载"><a href="#图片加载" class="headerlink" title="图片加载"></a>图片加载</h3><p>我最初使用路径下的图片作为头像，加载头像大概需要20秒，后来使用图片外链，几百毫秒就加载完成了。所以对于由图片引起的加载慢问题，可以使用图床。以外链的方式将图片加入文章中。</p>
-<h3 id="动画加载"><a href="#动画加载" class="headerlink" title="动画加载"></a>动画加载</h3><p>JavaScript生成的动画背景也对网页的加载速度的影响很大，可以依自己的意愿决定是否关闭。</p>
-<h2 id="3、创建文章时自动打开编辑器"><a href="#3、创建文章时自动打开编辑器" class="headerlink" title="3、创建文章时自动打开编辑器"></a>3、创建文章时自动打开编辑器</h2><p>一般情况下，我们写一篇需要以下两个过程：</p>
-<ol>
-<li>在git bash中使用命令创建一篇文章：</li>
-</ol>
-<figure class="highlight haxe"><table><tr><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> <span class="type"></span>文章名称</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>关闭git bash，打开<code>source\_posts</code>目录下的<code>文章名称.md</code>，开始码字。</li>
-</ol>
-<p>显然以上两个步骤连在一起有点繁琐，可以将其合在一起。办法就是在根目录下新建一个scripts文件夹，在里面新建一个js文件，名字可以随便起，在文件中加入以下代码：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> spawn = <span class="built_in">require</span>(<span class="string">&#x27;child_process&#x27;</span>).exec;</span><br><span class="line">hexo.on(<span class="string">&#x27;new&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">  spawn(<span class="string">&#x27;start  &quot;D:\\Program Files\\Typora\\Typora.exe&quot; &#x27;</span> + data.path);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>原理就是监听<code>hexo new</code>命令，这样当我们使用命令创建新文件是，选中的编辑器就会自动打开新建的文件。</p>
-<h2 id="4、显示文章摘要的方法"><a href="#4、显示文章摘要的方法" class="headerlink" title="4、显示文章摘要的方法"></a>4、显示文章摘要的方法</h2><p>不知道什么原因，我的next主题的配置文件夹下没有自动生成摘要相关的配置，即：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">auto_excerpt</span>:</span><br><span class="line">  <span class="selector-tag">enable</span>: <span class="selector-tag">true</span></span><br><span class="line">  <span class="selector-tag">length</span>: 150</span><br></pre></td></tr></table></figure>
-
-<p>所以生成文章摘要只有两种办法：</p>
-<ol>
-<li>在文章开头处使用<code>description</code>字段：</li>
-</ol>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title:</span><br><span class="line">date:</span><br><span class="line">description: 文章摘要</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>使用<code>&lt;!--more--&gt;</code>在原文中截断部分文字作为摘要。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>经验</category>
-      </categories>
-      <tags>
-        <tag>一些坑</tag>
-        <tag>博客</tag>
-      </tags>
   </entry>
 </search>

@@ -225,6 +225,7 @@
             </span>
 
           
+            <div class="post-description">git clone速度慢等问题</div>
 
         </div>
       </header>
@@ -235,15 +236,46 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>git clone速度慢等问题</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/12/09/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
+          <h2 id="1、git-clone速度慢的问题"><a href="#1、git-clone速度慢的问题" class="headerlink" title="1、git clone速度慢的问题"></a>1、git clone速度慢的问题</h2><p>为博客配置主题时需要从github仓库clone文件，即在git bash执行命令：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:<span class="regexp">//gi</span>thub.com<span class="regexp">/theme-next/</span>hexo-theme-<span class="keyword">next</span> themes/<span class="keyword">next</span></span><br></pre></td></tr></table></figure>
+
+<p>执行后发现从仓库clone的速度非常慢，大概只有4k~8K，即使挂了飞机下载速度依旧没有提高（不排出使用的节点有问题）</p>
+<p>解决问题的办法是使用镜像网站，即在<code>github.com</code>后面加上<code>cnpmjs.org</code>，更改后如下：</p>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="deletion">-git clone https://github.com/theme-next/hexo-theme-next themes/next</span></span><br><span class="line"><span class="addition">+git clone https://github.com.cnpmjs.org/theme-next/hexo-theme-next themes/next</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2、网站加载速度慢问题"><a href="#2、网站加载速度慢问题" class="headerlink" title="2、网站加载速度慢问题"></a>2、网站加载速度慢问题</h2><p>因为博客是依托于github搭建的，在国内访问github本来就很慢，所以提高加载速度的办法之一是修改自己的资源文件。</p>
+<h3 id="寻找是什么资源影响加载速度"><a href="#寻找是什么资源影响加载速度" class="headerlink" title="寻找是什么资源影响加载速度"></a>寻找是什么资源影响加载速度</h3><p>访问博客时打开浏览器的开发者工具，并切换到<code>Network</code>栏：</p>
+<p><img src="http://i1.fuimg.com/730680/49e3fdeb6b894afb.png"></p>
+<p>等网页加载完成后就可以看到是什么原因拖慢了加载速度：</p>
+<p><img src="http://i1.fuimg.com/730680/17e8c6b10843f3f8.png"></p>
+<h3 id="图片加载"><a href="#图片加载" class="headerlink" title="图片加载"></a>图片加载</h3><p>我最初使用路径下的图片作为头像，加载头像大概需要20秒，后来使用图片外链，几百毫秒就加载完成了。所以对于由图片引起的加载慢问题，可以使用图床。以外链的方式将图片加入文章中。</p>
+<h3 id="动画加载"><a href="#动画加载" class="headerlink" title="动画加载"></a>动画加载</h3><p>JavaScript生成的动画背景也对网页的加载速度的影响很大，可以依自己的意愿决定是否关闭。</p>
+<h2 id="3、创建文章时自动打开编辑器"><a href="#3、创建文章时自动打开编辑器" class="headerlink" title="3、创建文章时自动打开编辑器"></a>3、创建文章时自动打开编辑器</h2><p>一般情况下，我们写一篇需要以下两个过程：</p>
+<ol>
+<li>在git bash中使用命令创建一篇文章：</li>
+</ol>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> <span class="type"></span>文章名称</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>关闭git bash，打开<code>source\_posts</code>目录下的<code>文章名称.md</code>，开始码字。</li>
+</ol>
+<p>显然以上两个步骤连在一起有点繁琐，可以将其合在一起。办法就是在根目录下新建一个scripts文件夹，在里面新建一个js文件，名字可以随便起，在文件中加入以下代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> spawn = <span class="built_in">require</span>(<span class="string">&#x27;child_process&#x27;</span>).exec;</span><br><span class="line">hexo.on(<span class="string">&#x27;new&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">  spawn(<span class="string">&#x27;start  &quot;D:\\Program Files\\Typora\\Typora.exe&quot; &#x27;</span> + data.path);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>原理就是监听<code>hexo new</code>命令，这样当我们使用命令创建新文件是，选中的编辑器就会自动打开新建的文件。</p>
+<h2 id="4、显示文章摘要的方法"><a href="#4、显示文章摘要的方法" class="headerlink" title="4、显示文章摘要的方法"></a>4、显示文章摘要的方法</h2><p>不知道什么原因，我的next主题的配置文件夹下没有自动生成摘要相关的配置，即：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">auto_excerpt</span>:</span><br><span class="line">  <span class="selector-tag">enable</span>: <span class="selector-tag">true</span></span><br><span class="line">  <span class="selector-tag">length</span>: 150</span><br></pre></td></tr></table></figure>
+
+<p>所以生成文章摘要只有两种办法：</p>
+<ol>
+<li>在文章开头处使用<code>description</code>字段：</li>
+</ol>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title:</span><br><span class="line">date:</span><br><span class="line">description: 文章摘要</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>使用<code>&lt;!--more--&gt;</code>在原文中截断部分文字作为摘要。</li>
+</ol>
+
       
     </div>
 
@@ -285,10 +317,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-12-09 19:13:02 / 修改时间：20:05:11" itemprop="dateCreated datePublished" datetime="2020-12-09T19:13:02+08:00">2020-12-09</time>
+              <time title="创建时间：2020-12-09 19:13:02" itemprop="dateCreated datePublished" datetime="2020-12-09T19:13:02+08:00">2020-12-09</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-12-10 10:09:54" itemprop="dateModified" datetime="2020-12-10T10:09:54+08:00">2020-12-10</time>
+              </span>
 
           
 
@@ -793,7 +831,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
